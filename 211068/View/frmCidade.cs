@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace _211068
+namespace _211068.View
 {
-    public partial class frmMenu : Form
+    public partial class frmCidade : Form
     {
-        public frmMenu()
+        public frmCidade()
         {
             InitializeComponent();
-        }
-
-        private void frmMenu_Load(object sender, EventArgs e)
-        {
-            Banco.CriarBanco();
         }
     }
 }
