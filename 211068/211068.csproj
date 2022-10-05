@@ -134,6 +134,13 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="View\add.png" />
+    <Content Include="View\back.png" />
+    <Content Include="View\cancel.png" />
+    <Content Include="View\edit.png" />
+    <Content Include="View\exclude.png" />
+    <Content Include="View\search.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using _211068.View;
+
 namespace _211068
 {
     public partial class frmMenu : Form
@@ -20,6 +22,12 @@ namespace _211068
         private void frmMenu_Load(object sender, EventArgs e)
         {
             Banco.CriarBanco();
+        }
+
+        private void cidadesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCidade form = new frmCidade();
+            form.Show();
         }
     }
 }
