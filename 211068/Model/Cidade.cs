@@ -37,6 +37,8 @@ namespace _211068.Model
             }
         }
 
+        // ================================================================================================
+
         public void Alterar()
         {
             try
@@ -56,7 +58,52 @@ namespace _211068.Model
             catch (Exception e)
             {
                 MessageBox.Show(e.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
+        // ================================================================================================
+
+        public void Excluir()
+        {
+            try
+            {
+                Banco.AbrirConexao();
+
+                Banco.Comando = new MySqlCommand("DELETE FROM cidade WHERE id = @id", Banco.Conexao);
+                Banco.Comando.Parameters.AddWithValue("@id", id);
+
+                Banco.Comando.ExecuteNonQuery();
+
+                Banco.FecharConexao();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // ================================================================================================
+
+        public DataTable Consultar()
+        {
+            try
+            {
+                Banco.AbrirConexao();
+                Banco.Comando = new MySqlCommand("SELECT * FROM cidade WHERE nome LIKE @nome ORDER BY nome",
+                                                  Banco.Conexao);
+
+                Banco.Comando.Parameters.AddWithValue("@nome", nome + "%");
+                Banco.Adaptador = new MySqlDataAdapter(Banco.Comando);
+                Banco.DadosTabela = new DataTable();
+                Banco.Adaptador.Fill(Banco.DadosTabela);
+
+                Banco.FecharConexao();
+                return Banco.DadosTabela;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
             }
         }
     }

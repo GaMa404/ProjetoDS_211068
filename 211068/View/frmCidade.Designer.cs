@@ -32,7 +32,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtId = new System.Windows.Forms.TextBox();
             this.txtCidade = new System.Windows.Forms.TextBox();
             this.txtUf = new System.Windows.Forms.TextBox();
             this.btnIncluir = new System.Windows.Forms.Button();
@@ -40,12 +39,13 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
             this.gpboxPesquisa = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvCidades = new System.Windows.Forms.DataGridView();
             this.btnPesquisar = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.btnExcluir = new System.Windows.Forms.Button();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.gpboxPesquisa.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCidades)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -78,14 +78,6 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "UF:";
             // 
-            // txtId
-            // 
-            this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtId.Location = new System.Drawing.Point(16, 31);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(69, 26);
-            this.txtId.TabIndex = 3;
-            // 
             // txtCidade
             // 
             this.txtCidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -114,6 +106,7 @@
             this.btnIncluir.Text = "Incluir";
             this.btnIncluir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnIncluir.UseVisualStyleBackColor = true;
+            this.btnIncluir.Click += new System.EventHandler(this.btnIncluir_Click);
             // 
             // btnAlterar
             // 
@@ -127,6 +120,7 @@
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnCancelar
             // 
@@ -140,6 +134,7 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnFechar
             // 
@@ -153,12 +148,13 @@
             this.btnFechar.Text = "Fechar";
             this.btnFechar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFechar.UseVisualStyleBackColor = true;
+            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
             // gpboxPesquisa
             // 
-            this.gpboxPesquisa.Controls.Add(this.dataGridView1);
+            this.gpboxPesquisa.Controls.Add(this.dgvCidades);
             this.gpboxPesquisa.Controls.Add(this.btnPesquisar);
-            this.gpboxPesquisa.Controls.Add(this.textBox1);
+            this.gpboxPesquisa.Controls.Add(this.txtPesquisa);
             this.gpboxPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpboxPesquisa.Location = new System.Drawing.Point(16, 227);
             this.gpboxPesquisa.Name = "gpboxPesquisa";
@@ -167,13 +163,14 @@
             this.gpboxPesquisa.TabStop = false;
             this.gpboxPesquisa.Text = "Pesquisar cidade";
             // 
-            // dataGridView1
+            // dgvCidades
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(11, 114);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(755, 187);
-            this.dataGridView1.TabIndex = 12;
+            this.dgvCidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCidades.Location = new System.Drawing.Point(11, 114);
+            this.dgvCidades.Name = "dgvCidades";
+            this.dgvCidades.Size = new System.Drawing.Size(755, 187);
+            this.dgvCidades.TabIndex = 12;
+            this.dgvCidades.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCidades_CellClick);
             // 
             // btnPesquisar
             // 
@@ -187,14 +184,15 @@
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
-            // textBox1
+            // txtPesquisa
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(11, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(588, 26);
-            this.textBox1.TabIndex = 11;
+            this.txtPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPesquisa.Location = new System.Drawing.Point(11, 25);
+            this.txtPesquisa.Name = "txtPesquisa";
+            this.txtPesquisa.Size = new System.Drawing.Size(588, 26);
+            this.txtPesquisa.TabIndex = 11;
             // 
             // btnExcluir
             // 
@@ -208,6 +206,15 @@
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
+            // txtId
+            // 
+            this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtId.Location = new System.Drawing.Point(16, 31);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(69, 26);
+            this.txtId.TabIndex = 3;
             // 
             // frmCidade
             // 
@@ -230,9 +237,10 @@
             this.Name = "frmCidade";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de cidades";
+            this.Load += new System.EventHandler(this.frmCidade_Load);
             this.gpboxPesquisa.ResumeLayout(false);
             this.gpboxPesquisa.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCidades)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -243,7 +251,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.TextBox txtCidade;
         private System.Windows.Forms.TextBox txtUf;
         private System.Windows.Forms.Button btnIncluir;
@@ -251,9 +258,10 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnFechar;
         private System.Windows.Forms.GroupBox gpboxPesquisa;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvCidades;
         private System.Windows.Forms.Button btnPesquisar;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPesquisa;
         private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.TextBox txtId;
     }
 }
