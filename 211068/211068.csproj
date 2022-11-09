@@ -96,14 +96,28 @@
     <Compile Include="frmMenu.Designer.cs">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Categoria.cs" />
     <Compile Include="Model\Cidade.cs" />
+    <Compile Include="Model\Marca.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\frmCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmCategoria.Designer.cs">
+      <DependentUpon>frmCategoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\frmCidade.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\frmCidade.Designer.cs">
       <DependentUpon>frmCidade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmMarca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmMarca.Designer.cs">
+      <DependentUpon>frmMarca.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
@@ -117,8 +131,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\frmCategoria.resx">
+      <DependentUpon>frmCategoria.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\frmCidade.resx">
       <DependentUpon>frmCidade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmMarca.resx">
+      <DependentUpon>frmMarca.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

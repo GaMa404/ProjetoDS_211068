@@ -60,7 +60,21 @@ namespace _211068
                                            " uf CHAR(2)," +
                                            " PRIMARY KEY (id));", Conexao);
                 Comando.ExecuteNonQuery();
-                
+
+
+                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS marca (" +
+                                          " id INT AUTO_INCREMENT," +
+                                          " nome VARCHAR(120)," +
+                                          " PRIMARY KEY (id));", Conexao);
+                Comando.ExecuteNonQuery();
+
+
+                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS categoria (" +
+                                          " id INT AUTO_INCREMENT," +
+                                          " descricao VARCHAR(150)," +
+                                          " PRIMARY KEY (id));", Conexao);
+                Comando.ExecuteNonQuery();
+
                 // ======================================================================================
 
                 FecharConexao();

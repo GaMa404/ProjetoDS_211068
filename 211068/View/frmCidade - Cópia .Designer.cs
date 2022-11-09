@@ -168,7 +168,6 @@
             this.dgvCidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCidades.Location = new System.Drawing.Point(11, 114);
             this.dgvCidades.Name = "dgvCidades";
-            this.dgvCidades.ReadOnly = true;
             this.dgvCidades.Size = new System.Drawing.Size(755, 187);
             this.dgvCidades.TabIndex = 12;
             this.dgvCidades.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCidades_CellClick);
@@ -211,14 +210,11 @@
             // 
             // txtId
             // 
-            this.txtId.Enabled = false;
             this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtId.Location = new System.Drawing.Point(16, 31);
             this.txtId.Name = "txtId";
-            this.txtId.ReadOnly = true;
             this.txtId.Size = new System.Drawing.Size(69, 26);
             this.txtId.TabIndex = 3;
-            this.txtId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // frmCidade
             // 

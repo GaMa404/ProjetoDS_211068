@@ -10,11 +10,10 @@ using System.Windows.Forms;
 
 namespace _211068.Model
 {
-    internal class Cidade
+    internal class Marca
     {
         public int id { get; set; }
         public string nome { get; set; }
-        public string uf { get; set; }
 
         public void Incluir()
         {
@@ -22,10 +21,9 @@ namespace _211068.Model
             {
                 Banco.AbrirConexao();
 
-                Banco.Comando = new MySqlCommand("INSERT INTO cidade (nome, uf) VALUES (@nome, UPPER(@uf))", Banco.Conexao);
+                Banco.Comando = new MySqlCommand("INSERT INTO marca (nome) VALUES (@nome)", Banco.Conexao);
 
                 Banco.Comando.Parameters.AddWithValue("@nome", nome);
-                Banco.Comando.Parameters.AddWithValue("@uf", uf);
 
                 Banco.Comando.ExecuteNonQuery();
 
@@ -45,10 +43,9 @@ namespace _211068.Model
             {
                 Banco.AbrirConexao();
 
-                Banco.Comando = new MySqlCommand("UPDATE cidade SET nome=@nome, uf=UPPER(@uf) WHERE id=@id", Banco.Conexao);
+                Banco.Comando = new MySqlCommand("UPDATE marca SET nome=@nome WHERE id=@id", Banco.Conexao);
 
                 Banco.Comando.Parameters.AddWithValue("@nome", nome);
-                Banco.Comando.Parameters.AddWithValue("@uf", uf);
                 Banco.Comando.Parameters.AddWithValue("@id", id);
 
                 Banco.Comando.ExecuteNonQuery();
@@ -69,7 +66,7 @@ namespace _211068.Model
             {
                 Banco.AbrirConexao();
 
-                Banco.Comando = new MySqlCommand("DELETE FROM cidade WHERE id = @id", Banco.Conexao);
+                Banco.Comando = new MySqlCommand("DELETE FROM marca WHERE id = @id", Banco.Conexao);
                 Banco.Comando.Parameters.AddWithValue("@id", id);
 
                 Banco.Comando.ExecuteNonQuery();
@@ -89,7 +86,7 @@ namespace _211068.Model
             try
             {
                 Banco.AbrirConexao();
-                Banco.Comando = new MySqlCommand("SELECT * FROM cidade WHERE nome LIKE @nome ORDER BY nome",
+                Banco.Comando = new MySqlCommand("SELECT * FROM marca WHERE nome LIKE @nome ORDER BY nome",
                                                   Banco.Conexao);
 
                 Banco.Comando.Parameters.AddWithValue("@nome", nome + "%");
