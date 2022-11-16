@@ -162,6 +162,7 @@
             this.gpboxPesquisa.TabIndex = 10;
             this.gpboxPesquisa.TabStop = false;
             this.gpboxPesquisa.Text = "Pesquisar cidade";
+            this.gpboxPesquisa.Enter += new System.EventHandler(this.gpboxPesquisa_Enter);
             // 
             // dgvCidades
             // 

@@ -121,5 +121,10 @@ namespace _211068.View
                 txtUf.Text = dgvCidades.CurrentRow.Cells["uf"].Value.ToString();
             }
         }
+
+        private void gpboxPesquisa_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

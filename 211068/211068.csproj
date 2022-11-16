@@ -98,6 +98,7 @@
     </Compile>
     <Compile Include="Model\Categoria.cs" />
     <Compile Include="Model\Cidade.cs" />
+    <Compile Include="Model\Cliente.cs" />
     <Compile Include="Model\Marca.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -112,6 +113,12 @@
     </Compile>
     <Compile Include="View\frmCidade.Designer.cs">
       <DependentUpon>frmCidade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmCliente.Designer.cs">
+      <DependentUpon>frmCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="View\frmMarca.cs">
       <SubType>Form</SubType>
@@ -136,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmCidade.resx">
       <DependentUpon>frmCidade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmCliente.resx">
+      <DependentUpon>frmCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmMarca.resx">
       <DependentUpon>frmMarca.cs</DependentUpon>

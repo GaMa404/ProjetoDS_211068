@@ -75,6 +75,20 @@ namespace _211068
                                           " PRIMARY KEY (id));", Conexao);
                 Comando.ExecuteNonQuery();
 
+
+                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS cliente (" +
+                                          " id INT AUTO_INCREMENT," +
+                                          " id_cidade INT," +
+                                          " nome VARCHAR(150)," +
+                                          " data_nasc DATE," +
+                                          " renda DOUBLE," +
+                                          " cpf CHAR(11)," +
+                                          " foto VARCHAR(150)," +
+                                          " venda BOOLEAN," +
+                                          " PRIMARY KEY (id)," +
+                                          " FOREIGN KEY (id_cidade) REFERENCES cidade(id));", Conexao);
+                Comando.ExecuteNonQuery();
+
                 // ======================================================================================
 
                 FecharConexao();
