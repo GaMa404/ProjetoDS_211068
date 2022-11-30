@@ -47,6 +47,8 @@ namespace _211068.View
 
         private void dgvClientes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            lbl_foto.Text = "";
+
             if (dgvClientes.RowCount > 0)
             {
                 txtId.Text = dgvClientes.CurrentRow.Cells["id"].Value.ToString();
@@ -123,6 +125,8 @@ namespace _211068.View
                 limpaControles();
                 carregarGrid("");
             }
+
+            lbl_foto.Text = "Clique aqui para escolher a foto";
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -142,12 +146,16 @@ namespace _211068.View
                 limpaControles();
                 carregarGrid("");
             }
+
+            lbl_foto.Text = "Clique aqui para escolher a foto";
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             limpaControles();
             carregarGrid("");
+
+            lbl_foto.Text = "Clique aqui para escolher a foto";
         }
 
         private void btnPesquisar_Click(object sender, EventArgs e)

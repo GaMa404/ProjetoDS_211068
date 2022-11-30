@@ -25,7 +25,7 @@ namespace _211068.Model
             {
                 Banco.AbrirConexao();
 
-                Banco.Comando = new MySqlCommand("INSERT INTO produto (id_categoria, id_marca, descricao, estoque, valor_venda, foto)" +
+                Banco.Comando = new MySqlCommand("INSERT INTO produto (id_categoria, id_marca, descricao, estoque, valor_venda, foto) " +
                                                  "VALUES (@id_categoria, @id_marca, @descricao, @estoque, @valor_venda, @foto)", Banco.Conexao);
 
                 Banco.Comando.Parameters.AddWithValue("@id_categoria", id_categoria);
@@ -100,11 +100,11 @@ namespace _211068.Model
         {
             try
             {
-                Banco.Comando = new MySqlCommand("SELECT p.*, m.nome, c.descricao AS categoria_descricao" +
-                                                 "FROM produto p" +
-                                                 "JOIN marca m ON (m.id = p.id_marca)" +
-                                                 "JOIN categoria c ON (c.id = c.id_categoria" +
-                                                 "WHERE p.descricao LIKE @descricao ORDER BY p.descricao", Banco.Conexao);
+                Banco.Comando = new MySqlCommand("SELECT p.*, m.nome, c.descricao AS categoria_descricao " +
+                                                 "FROM produto p " +
+                                                 "JOIN marca m ON (m.id = p.id_marca) " +
+                                                 "JOIN categoria c ON (c.id = p.id_categoria) " +
+                                                 "WHERE p.descricao LIKE @descricao ORDER BY p.descricao ", Banco.Conexao);
                 Banco.Comando.Parameters.AddWithValue("@descricao", descricao + "%");
                 Banco.Adaptador = new MySqlDataAdapter(Banco.Comando);
                 Banco.DadosTabela = new DataTable();
