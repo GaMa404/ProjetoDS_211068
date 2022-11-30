@@ -55,7 +55,7 @@
             this.btnIncluir = new System.Windows.Forms.Button();
             this.chkVenda = new System.Windows.Forms.CheckBox();
             this.ofdArquivo = new System.Windows.Forms.OpenFileDialog();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lbl_foto = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picFoto)).BeginInit();
             this.gpboxPesquisa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
@@ -184,7 +184,7 @@
             // 
             this.mskCPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mskCPF.Location = new System.Drawing.Point(16, 234);
-            this.mskCPF.Mask = "999.999.999-99";
+            this.mskCPF.Mask = "999,999,999-99";
             this.mskCPF.Name = "mskCPF";
             this.mskCPF.Size = new System.Drawing.Size(130, 26);
             this.mskCPF.TabIndex = 13;
@@ -336,23 +336,23 @@
             // 
             this.ofdArquivo.FileName = "ofdArquivo";
             // 
-            // label8
+            // lbl_foto
             // 
-            this.label8.AutoSize = true;
-            this.label8.Enabled = false;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(716, 105);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(180, 15);
-            this.label8.TabIndex = 23;
-            this.label8.Text = "Clique aqui para escolher a foto";
+            this.lbl_foto.AutoSize = true;
+            this.lbl_foto.Enabled = false;
+            this.lbl_foto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_foto.Location = new System.Drawing.Point(716, 105);
+            this.lbl_foto.Name = "lbl_foto";
+            this.lbl_foto.Size = new System.Drawing.Size(180, 15);
+            this.lbl_foto.TabIndex = 23;
+            this.lbl_foto.Text = "Clique aqui para escolher a foto";
             // 
             // frmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(936, 733);
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.lbl_foto);
             this.Controls.Add(this.chkVenda);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.gpboxPesquisa);
@@ -377,6 +377,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmCliente";
             this.Text = "frmCliente";
+            this.Load += new System.EventHandler(this.frmCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picFoto)).EndInit();
             this.gpboxPesquisa.ResumeLayout(false);
             this.gpboxPesquisa.PerformLayout();
@@ -414,6 +415,6 @@
         private System.Windows.Forms.Button btnIncluir;
         private System.Windows.Forms.CheckBox chkVenda;
         private System.Windows.Forms.OpenFileDialog ofdArquivo;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lbl_foto;
     }
 }

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace _211068.Model
 {
-    internal class Marca
+    public class Marca
     {
         public int id { get; set; }
         public string nome { get; set; }

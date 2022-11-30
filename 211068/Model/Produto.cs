@@ -9,16 +9,15 @@ using System.Windows.Forms;
 
 namespace _211068.Model
 {
-    public class Cliente
+    public class Produto
     {
         public int id { get; set; }
-        public int id_cidade { get; set; }
-        public string nome { get; set; }
-        public DateTime data_nasc { get; set; }
-        public double renda { get; set; }
-        public string cpf { get; set; }
+        public int id_categoria { get; set; }
+        public int id_marca { get; set; }
+        public string descricao { get; set; }
+        public double estoque { get; set; }
+        public double valor_venda { get; set; }
         public string foto { get; set; }
-        public bool venda { get; set; }
 
         public void Incluir()
         {
@@ -26,16 +25,15 @@ namespace _211068.Model
             {
                 Banco.AbrirConexao();
 
-                Banco.Comando = new MySqlCommand("INSERT INTO cliente (id_cidade, nome, data_nasc, renda, cpf, foto, venda)" +
-                                                " VALUES (@id_cidade, @nome, @data_nasc, @renda, @cpf, @foto, @venda)", Banco.Conexao);
+                Banco.Comando = new MySqlCommand("INSERT INTO produto (id_categoria, id_marca, descricao, estoque, valor_venda, foto)" +
+                                                 "VALUES (@id_categoria, @id_marca, @descricao, @estoque, @valor_venda, @foto)", Banco.Conexao);
 
-                Banco.Comando.Parameters.AddWithValue("@id_cidade", id_cidade);
-                Banco.Comando.Parameters.AddWithValue("@nome", nome);
-                Banco.Comando.Parameters.AddWithValue("@data_nasc", data_nasc);
-                Banco.Comando.Parameters.AddWithValue("@renda", renda);
-                Banco.Comando.Parameters.AddWithValue("@cpf", cpf);
+                Banco.Comando.Parameters.AddWithValue("@id_categoria", id_categoria);
+                Banco.Comando.Parameters.AddWithValue("@id_marca", id_marca);
+                Banco.Comando.Parameters.AddWithValue("@descricao", descricao);
+                Banco.Comando.Parameters.AddWithValue("@estoque", estoque);
+                Banco.Comando.Parameters.AddWithValue("@valor_venda", valor_venda);
                 Banco.Comando.Parameters.AddWithValue("@foto", foto);
-                Banco.Comando.Parameters.AddWithValue("@venda", venda);
 
                 Banco.Comando.ExecuteNonQuery();
 
@@ -55,16 +53,15 @@ namespace _211068.Model
             {
                 Banco.AbrirConexao();
 
-                Banco.Comando = new MySqlCommand("UPDATE cliente SET id_cidade=@id_cidade, nome=@nome, data_nasc=@data_nasc," +
-                                                 "renda=@renda, cpf=@cpf, foto=@foto, venda=@venda WHERE id=@id", Banco.Conexao);
+                Banco.Comando = new MySqlCommand("UPDATE produto SET id_categoria = @id_categoria, id_marca = @id_marca, descricao = @descricao, " +
+                                                 "estoque = @estoque, valor_venda = @valor_venda, foto = @foto WHERE id=@id", Banco.Conexao);
 
-                Banco.Comando.Parameters.AddWithValue("@id_cidade", id_cidade);
-                Banco.Comando.Parameters.AddWithValue("@nome", nome);
-                Banco.Comando.Parameters.AddWithValue("@data_nasc", data_nasc);
-                Banco.Comando.Parameters.AddWithValue("@renda", renda);
-                Banco.Comando.Parameters.AddWithValue("@cpf", cpf);
+                Banco.Comando.Parameters.AddWithValue("@id_categoria", id_categoria);
+                Banco.Comando.Parameters.AddWithValue("@id_marca", id_marca);
+                Banco.Comando.Parameters.AddWithValue("@descricao", descricao);
+                Banco.Comando.Parameters.AddWithValue("@estoque", estoque);
+                Banco.Comando.Parameters.AddWithValue("@valor_venda", valor_venda);
                 Banco.Comando.Parameters.AddWithValue("@foto", foto);
-                Banco.Comando.Parameters.AddWithValue("@venda", venda);
                 Banco.Comando.Parameters.AddWithValue("@id", id);
 
                 Banco.Comando.ExecuteNonQuery();
@@ -85,7 +82,7 @@ namespace _211068.Model
             {
                 Banco.AbrirConexao();
 
-                Banco.Comando = new MySqlCommand("DELETE FROM cliente WHERE id = @id", Banco.Conexao);
+                Banco.Comando = new MySqlCommand("DELETE FROM produto WHERE id = @id", Banco.Conexao);
                 Banco.Comando.Parameters.AddWithValue("@id", id);
 
                 Banco.Comando.ExecuteNonQuery();
@@ -99,27 +96,22 @@ namespace _211068.Model
         }
 
         // ================================================================================================
-
         public DataTable Consultar()
         {
             try
             {
-                Banco.AbrirConexao();
-                Banco.Comando = new MySqlCommand("SELECT cl.*, ci.nome AS cidade, ci.uf " +
-                                                 "FROM cliente cl " +
-                                                 "JOIN cidade ci ON (cl.id_cidade = ci.id)" +
-                                                 "WHERE cl.nome LIKE ?nome ORDER BY cl.nome",
-                                                  Banco.Conexao);
-
-                Banco.Comando.Parameters.AddWithValue("@nome", nome + "%");
+                Banco.Comando = new MySqlCommand("SELECT p.*, m.nome, c.descricao AS categoria_descricao" +
+                                                 "FROM produto p" +
+                                                 "JOIN marca m ON (m.id = p.id_marca)" +
+                                                 "JOIN categoria c ON (c.id = c.id_categoria" +
+                                                 "WHERE p.descricao LIKE @descricao ORDER BY p.descricao", Banco.Conexao);
+                Banco.Comando.Parameters.AddWithValue("@descricao", descricao + "%");
                 Banco.Adaptador = new MySqlDataAdapter(Banco.Comando);
                 Banco.DadosTabela = new DataTable();
                 Banco.Adaptador.Fill(Banco.DadosTabela);
-
-                Banco.FecharConexao();
                 return Banco.DadosTabela;
             }
-            catch (Exception e)
+            catch(Exception e)
             {
                 MessageBox.Show(e.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace _211068.Model
 {
-    internal class Cidade
+    public class Cidade
     {
         public int id { get; set; }
         public string nome { get; set; }

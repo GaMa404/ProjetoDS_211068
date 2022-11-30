@@ -58,21 +58,21 @@ namespace _211068
                                            " id INT AUTO_INCREMENT," +
                                            " nome VARCHAR(120)," +
                                            " uf CHAR(2)," +
-                                           " PRIMARY KEY (id));", Conexao);
+                                           " PRIMARY KEY (id))", Conexao);
                 Comando.ExecuteNonQuery();
 
 
                 Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS marca (" +
                                           " id INT AUTO_INCREMENT," +
                                           " nome VARCHAR(120)," +
-                                          " PRIMARY KEY (id));", Conexao);
+                                          " PRIMARY KEY (id))", Conexao);
                 Comando.ExecuteNonQuery();
 
 
                 Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS categoria (" +
                                           " id INT AUTO_INCREMENT," +
                                           " descricao VARCHAR(150)," +
-                                          " PRIMARY KEY (id));", Conexao);
+                                          " PRIMARY KEY (id))", Conexao);
                 Comando.ExecuteNonQuery();
 
 
@@ -82,11 +82,25 @@ namespace _211068
                                           " nome VARCHAR(150)," +
                                           " data_nasc DATE," +
                                           " renda DOUBLE," +
-                                          " cpf CHAR(11)," +
+                                          " cpf CHAR(14)," +
                                           " foto VARCHAR(150)," +
                                           " venda BOOLEAN," +
                                           " PRIMARY KEY (id)," +
-                                          " FOREIGN KEY (id_cidade) REFERENCES cidade(id));", Conexao);
+                                          " FOREIGN KEY (id_cidade) REFERENCES cidade(id))", Conexao);
+                Comando.ExecuteNonQuery();
+
+
+                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS produto (" +
+                                         " id INT AUTO_INCREMENT," +
+                                         " id_categoria INT," +
+                                         " id_marca INT," +
+                                         " descricao VARCHAR(100)," +
+                                         " estoque DOUBLE(10,3)," +
+                                         " valor_venda DOUBLE(10,2)," +
+                                         " foto VARCHAR(150)," +
+                                         " PRIMARY KEY (id)," +
+                                         " FOREIGN KEY (id_categoria) REFERENCES categoria(id)," +
+                                         " FOREIGN KEY (id_marca) REFERENCES marca(id))", Conexao);
                 Comando.ExecuteNonQuery();
 
                 // ======================================================================================

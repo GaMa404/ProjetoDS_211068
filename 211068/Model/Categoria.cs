@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace _211068.Model
 {
-    internal class Categoria
+    public class Categoria
     {
         public int id { get; set; }
         public string descricao { get; set; }

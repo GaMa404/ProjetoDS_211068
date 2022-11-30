@@ -45,20 +45,6 @@ namespace _211068.View
             dgvClientes.DataSource = cl.Consultar();
         }
 
-        private void frmCliente_Load(object sender, EventArgs e)
-        {
-            ci = new Cidade();
-            cboCidade.DataSource = ci.Consultar();
-            cboCidade.DisplayMember = "nome";
-            cboCidade.ValueMember = "id";
-
-            limpaControles();
-            carregarGrid("");
-
-            dgvClientes.Columns["id_cidade"].Visible = false;
-            dgvClientes.Columns["foto"].Visible = false;
-        }
-
         private void dgvClientes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvClientes.RowCount > 0)
@@ -90,6 +76,8 @@ namespace _211068.View
             ofdArquivo.FileName = "";
             ofdArquivo.ShowDialog();
             picFoto.ImageLocation = ofdArquivo.FileName;
+
+            lbl_foto.Text = "";
         }
 
         private void btnIncluir_Click(object sender, EventArgs e)
@@ -97,7 +85,6 @@ namespace _211068.View
             if (txtNome.Text == String.Empty) return;
 
             cl = new Cliente()
-
             {
                 id_cidade = (int)cboCidade.SelectedValue,
                 nome = txtNome.Text,
@@ -112,6 +99,8 @@ namespace _211068.View
 
             limpaControles();
             carregarGrid("");
+
+            lbl_foto.Text = "Clique aqui para escolher a foto";
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
@@ -169,6 +158,20 @@ namespace _211068.View
         private void btnFechar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void frmCliente_Load(object sender, EventArgs e)
+        {
+            ci = new Cidade();
+            cboCidade.DataSource = ci.Consultar();
+            cboCidade.DisplayMember = "nome";
+            cboCidade.ValueMember = "id";
+
+            limpaControles();
+            carregarGrid("");
+
+            dgvClientes.Columns["id_cidade"].Visible = false;
+            dgvClientes.Columns["foto"].Visible = false;
         }
     }
 }
